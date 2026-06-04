@@ -1,0 +1,19 @@
+{
+  "name": "今天吃什麼",
+  "short_name": "吃什麼",
+  "description": "用篩選、抽籤和二選一淘汰賽決定今天吃什麼。",
+  "start_url": ".",
+  "scope": ".",
+  "display": "standalone",
+  "background_color": "#f7f7f4",
+  "theme_color": "#2f7d5c",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "assets/app-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

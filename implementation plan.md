@@ -1,5 +1,34 @@
 # Implementation Plan
 
+## Current Change Plan：本週紀錄手動填寫
+
+- 主頁右下角 `+` 新增 `填寫週曆` 入口。
+- 新增 `填寫本週紀錄` modal，使用者可選本週任一天並輸入店家名稱。
+- 週曆手動輸入的店名以 2 到 4 個字短名顯示，和抽籤自動寫入一致。
+- 若輸入店名和既有餐廳完全相同，週曆紀錄同時保存餐廳 id；否則保存自訂店名。
+- 保留既有抽籤與二選一自動寫入週曆功能，並兼容舊資料格式。
+- 完成後執行 JS 語法檢查與 HTML selector 檢查。
+
+## Current Change Plan：繁體翩翩體字體
+
+- 全站字體改為優先使用繁體翩翩體。
+- CSS font stack 使用 `HanziPen TC`、`翩翩體-繁`、`翩翩體` 作為優先字體。
+- 若裝置沒有翩翩體，保留 `Microsoft JhengHei`、`Segoe UI`、Arial、sans-serif 作為 fallback，避免版面或可讀性受影響。
+- 完成後檢查 CSS 字體設定是否已寫入。
+
+## Current Change Plan：四頁 app 化與 PWA 安裝
+
+- 將 `主頁 / 篩選 / 抽籤 / 設定` 統一成同一個 app viewport 規格：相同寬度、相同頁面最小高度、相同底部導覽安全距離。
+- 修正 `篩選` 頁尺寸不一致問題，讓篩選頁和其他頁一樣填滿可用 app 高度，餐廳列表在頁面內自然排列。
+- 新增 PWA `manifest.webmanifest`，讓 Android 與 iOS 可用瀏覽器加入主畫面。
+- 新增 `service-worker.js`，快取 HTML/CSS/JS/seed/icon，支援離線開啟。
+- 新增 app icon，供 manifest 與 iOS shortcut 使用。
+- `index.html` 補上 PWA、iOS、theme color、apple mobile web app 相關 meta/link。
+- `app.js` 註冊 service worker；若瀏覽器不支援則維持一般網頁模式。
+- PWA 安裝需透過 `localhost` 或 HTTPS 開啟；直接用 `file://` 開啟仍可使用網頁，但不能註冊 service worker。
+- 第一版仍維持純 HTML/CSS/JS，不加入 Capacitor、Cordova 或 App Store / Google Play 打包流程。
+- 完成後執行 JS 語法檢查、service worker 語法檢查與 PWA 檔案存在檢查。
+
 ## Current Change Plan：週曆、左右淘汰賽卡片與抽籤動畫
 
 - 二選一淘汰賽畫面改成明確的左右兩張餐廳卡片，卡片標示 `左邊`、`右邊`，使用者點卡片選擇。

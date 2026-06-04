@@ -11,18 +11,26 @@
   --red: #b84034;
   --blue: #3d6f91;
   --shadow: 0 10px 28px rgba(28, 32, 27, 0.08);
-  font-family: "Segoe UI", "Microsoft JhengHei", Arial, sans-serif;
+  --app-max-width: 1180px;
+  --bottom-nav-space: 106px;
+  font-family: "HanziPen TC", "翩翩體-繁", "翩翩體", "Microsoft JhengHei", "Segoe UI", Arial, sans-serif;
 }
 
 * {
   box-sizing: border-box;
 }
 
+html {
+  min-height: 100%;
+  background: var(--bg);
+}
+
 body {
   margin: 0;
   background: var(--bg);
   color: var(--ink);
-  padding-bottom: 96px;
+  min-height: 100vh;
+  padding-bottom: calc(var(--bottom-nav-space) + env(safe-area-inset-bottom));
 }
 
 button,
@@ -115,8 +123,9 @@ h3 {
   align-items: end;
   justify-content: space-between;
   gap: 18px;
-  padding: 28px;
-  border-bottom: 1px solid var(--line);
+  width: min(var(--app-max-width), 100%);
+  margin: 0 auto;
+  padding: 24px 18px 14px;
 }
 
 .eyebrow {
@@ -154,9 +163,10 @@ h3 {
 
 .app-shell {
   display: block;
-  max-width: 1180px;
+  width: min(var(--app-max-width), 100%);
   margin: 0 auto;
-  padding: 18px;
+  min-height: calc(100svh - 132px);
+  padding: 18px 18px calc(var(--bottom-nav-space) + 18px);
 }
 
 .page-view {
@@ -166,6 +176,8 @@ h3 {
 .page-view.is-active {
   display: grid;
   gap: 18px;
+  align-content: start;
+  min-height: calc(100svh - 220px);
 }
 
 .panel {
@@ -775,8 +787,12 @@ h3 {
 
 #home-page {
   position: relative;
-  min-height: min(420px, calc(100vh - 220px));
+  min-height: calc(100svh - 220px);
   padding-bottom: 84px;
+}
+
+#filter-page {
+  grid-template-rows: auto minmax(0, 1fr);
 }
 
 .bottom-nav {
@@ -883,9 +899,12 @@ h3 {
 }
 
 @media (max-width: 980px) {
-  .app-header,
-  .app-shell {
+  .app-header {
     padding: 16px;
+  }
+
+  .app-shell {
+    padding: 16px 16px calc(var(--bottom-nav-space) + 16px);
   }
 
   .app-header {

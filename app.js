@@ -35,6 +35,9 @@ const els = {
   targetCenter: document.querySelector("#target-center"),
   targetRadius: document.querySelector("#target-radius"),
   targetPurpose: document.querySelector("#target-purpose"),
+  weeklyForm: document.querySelector("#weekly-form"),
+  weeklyDate: document.querySelector("#weekly-date"),
+  weeklyName: document.querySelector("#weekly-name"),
   categoryForm: document.querySelector("#category-form"),
   categoryName: document.querySelector("#category-name"),
   tagForm: document.querySelector("#tag-form"),
@@ -187,7 +190,21 @@ function getShortRestaurantName(name) {
 }
 
 function recordWeeklyPick(restaurantId) {
-  state.weeklyPicks[getLocalDateKey()] = restaurantId;
+  state.weeklyPicks[getLocalDateKey()] = { restaurantId };
+}
+
+function resolveWeeklyPick(dateKey) {
+  const pick = state.weeklyPicks[dateKey];
+  if (!pick) return null;
+  if (typeof pick === "string") {
+    return state.restaurants.find((restaurant) => restaurant.id === pick) || { name: pick };
+  }
+  if (pick.restaurantId) {
+    const restaurant = state.restaurants.find((item) => item.id === pick.restaurantId);
+    if (restaurant) return restaurant;
+  }
+  if (pick.customName) return { name: pick.customName };
+  return null;
 }
 
 function getOrCreateCategoryId(name) {
@@ -576,7 +593,22 @@ function renderStats() {
   els.statBlacklist.textContent = state.restaurants.filter((restaurant) => restaurant.isBlacklisted).length;
 }
 
+function renderWeeklyDateOptions() {
+  const labels = ["一", "二", "三", "四", "五", "六", "日"];
+  const todayKey = getLocalDateKey();
+  els.weeklyDate.innerHTML = "";
+  getWeekDates().forEach((date, index) => {
+    const dateKey = getLocalDateKey(date);
+    const option = document.createElement("option");
+    option.value = dateKey;
+    option.textContent = `週${labels[index]} ${date.getMonth() + 1}/${date.getDate()}`;
+    option.selected = dateKey === todayKey;
+    els.weeklyDate.append(option);
+  });
+}
+
 function renderForms() {
+  renderWeeklyDateOptions();
   renderOptions(els.restaurantTarget, state.targetAreas, "不指定");
   renderCheckList(els.restaurantCategories, state.categories, getCheckedIds(els.restaurantCategories), "restaurant-category");
   renderCheckList(els.restaurantTags, state.tags, getCheckedIds(els.restaurantTags), "restaurant-tag");
@@ -724,8 +756,8 @@ function renderWeekCalendar() {
   const labels = ["一", "二", "三", "四", "五", "六", "日"];
   els.weekCalendar.innerHTML = getWeekDates().map((date, index) => {
     const dateKey = getLocalDateKey(date);
-    const restaurant = state.restaurants.find((item) => item.id === state.weeklyPicks[dateKey]);
-    const shortName = restaurant ? getShortRestaurantName(restaurant.name) : "未記";
+    const pick = resolveWeeklyPick(dateKey);
+    const shortName = pick ? getShortRestaurantName(pick.name) : "未記";
     return `
       <div class="week-day${dateKey === todayKey ? " is-today" : ""}">
         <div class="week-label">週${labels[index]} ${date.getMonth() + 1}/${date.getDate()}</div>
@@ -946,6 +978,20 @@ function addTargetArea(event) {
   els.targetForm.reset();
   closeModals();
   commit("已新增目標地點");
+}
+
+function addWeeklyPick(event) {
+  event.preventDefault();
+  const dateKey = els.weeklyDate.value || getLocalDateKey();
+  const name = text(els.weeklyName.value);
+  if (!name) return showToast("請輸入店家名稱");
+  const restaurant = findByName(state.restaurants, name);
+  state.weeklyPicks[dateKey] = restaurant
+    ? { restaurantId: restaurant.id, customName: restaurant.name }
+    : { customName: name };
+  els.weeklyForm.reset();
+  closeModals();
+  commit("已寫入本週紀錄");
 }
 
 function addCategory(event) {
@@ -1353,6 +1399,7 @@ function bindEvents() {
     }
   });
   els.targetForm.addEventListener("submit", addTargetArea);
+  els.weeklyForm.addEventListener("submit", addWeeklyPick);
   els.categoryForm.addEventListener("submit", addCategory);
   els.tagForm.addEventListener("submit", addTag);
   els.restaurantForm.addEventListener("submit", addRestaurant);
@@ -1396,7 +1443,17 @@ function bindEvents() {
   });
 }
 
+function registerServiceWorker() {
+  if (!("serviceWorker" in navigator)) return;
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("service-worker.js").catch(() => {
+      // Local file usage cannot register service workers; the app still works as a normal web page.
+    });
+  });
+}
+
 migrateLegacyXinzhuangSeed();
 applyInitialSeeds();
 bindEvents();
+registerServiceWorker();
 render();
