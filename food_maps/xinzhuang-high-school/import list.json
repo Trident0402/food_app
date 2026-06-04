@@ -1,0 +1,310 @@
+{
+  "targetArea": {
+    "name": "新莊高中附近",
+    "centerName": "新莊高中(新莊文藝中心)",
+    "radiusText": "Google Maps 清單 10 筆地點",
+    "purpose": "午餐、晚餐、放學後不知道吃什麼"
+  },
+  "restaurants": [
+    {
+      "name": "好運雞湯_湯序燉品(點湯品有送小菜)-新莊雞湯/新鮮雞腿慢燉/無化學添加",
+      "address": "新莊高中(新莊文藝中心) 美食 Google Maps 清單地點",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=%E5%A5%BD%E9%81%8B%E9%9B%9E%E6%B9%AF_%E6%B9%AF%E5%BA%8F%E7%87%89%E5%93%81(%E9%BB%9E%E6%B9%AF%E5%93%81%E6%9C%89%E9%80%81%E5%B0%8F%E8%8F%9C)-%E6%96%B0%E8%8E%8A%E9%9B%9E%E6%B9%AF%2F%E6%96%B0%E9%AE%AE%E9%9B%9E%E8%85%BF%E6%85%A2%E7%87%89%2F%E7%84%A1%E5%8C%96%E5%AD%B8%E6%B7%BB%E5%8A%A0%2025.0489605%2C121.4454692",
+      "categoryNames": [
+        "湯品",
+        "台式"
+      ],
+      "tagNames": [
+        "午餐",
+        "晚餐",
+        "一人友善"
+      ],
+      "aiSuggestedTagNames": [
+        "雞湯",
+        "燉品",
+        "低負擔"
+      ],
+      "aiSuggestionNote": "取自使用者提供的 Google Maps 清單：https://maps.app.goo.gl/tQw8kB4tXhChFiSWA。類別與標籤由店名初步判斷，仍建議人工確認。",
+      "distanceRank": 1,
+      "distanceText": "Google Maps 清單順序 1/10",
+      "latitude": 25.0489605,
+      "longitude": 121.4454692,
+      "priceText": "需人工確認",
+      "rating": null,
+      "reviewCount": null,
+      "openingHoursText": "需人工確認",
+      "note": "Google Maps 清單第 1 筆。初始資料，請以 Google Maps 與店家公告為準。",
+      "dataVerified": false,
+      "source": "google-maps-list-tQw8kB4tXhChFiSWA"
+    },
+    {
+      "name": "MiNi吧! 即享個人鍋物",
+      "address": "新莊高中(新莊文藝中心) 美食 Google Maps 清單地點",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=MiNi%E5%90%A7!%20%E5%8D%B3%E4%BA%AB%E5%80%8B%E4%BA%BA%E9%8D%8B%E7%89%A9%2025.0487477%2C121.4456633",
+      "categoryNames": [
+        "火鍋"
+      ],
+      "tagNames": [
+        "午餐",
+        "晚餐",
+        "一人友善"
+      ],
+      "aiSuggestedTagNames": [
+        "個人鍋",
+        "快速解決"
+      ],
+      "aiSuggestionNote": "取自使用者提供的 Google Maps 清單：https://maps.app.goo.gl/tQw8kB4tXhChFiSWA。類別與標籤由店名初步判斷，仍建議人工確認。",
+      "distanceRank": 2,
+      "distanceText": "Google Maps 清單順序 2/10",
+      "latitude": 25.0487477,
+      "longitude": 121.4456633,
+      "priceText": "需人工確認",
+      "rating": null,
+      "reviewCount": null,
+      "openingHoursText": "需人工確認",
+      "note": "Google Maps 清單第 2 筆。初始資料，請以 Google Maps 與店家公告為準。",
+      "dataVerified": false,
+      "source": "google-maps-list-tQw8kB4tXhChFiSWA"
+    },
+    {
+      "name": "摩斯漢堡 新莊中平店",
+      "address": "新莊高中(新莊文藝中心) 美食 Google Maps 清單地點",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=%E6%91%A9%E6%96%AF%E6%BC%A2%E5%A0%A1%20%E6%96%B0%E8%8E%8A%E4%B8%AD%E5%B9%B3%E5%BA%97%2025.0495332%2C121.4449551",
+      "categoryNames": [
+        "速食",
+        "美式"
+      ],
+      "tagNames": [
+        "早餐",
+        "午餐",
+        "晚餐",
+        "外帶"
+      ],
+      "aiSuggestedTagNames": [
+        "漢堡",
+        "快速解決"
+      ],
+      "aiSuggestionNote": "取自使用者提供的 Google Maps 清單：https://maps.app.goo.gl/tQw8kB4tXhChFiSWA。類別與標籤由店名初步判斷，仍建議人工確認。",
+      "distanceRank": 3,
+      "distanceText": "Google Maps 清單順序 3/10",
+      "latitude": 25.0495332,
+      "longitude": 121.4449551,
+      "priceText": "需人工確認",
+      "rating": null,
+      "reviewCount": null,
+      "openingHoursText": "需人工確認",
+      "note": "Google Maps 清單第 3 筆。初始資料，請以 Google Maps 與店家公告為準。",
+      "dataVerified": false,
+      "source": "google-maps-list-tQw8kB4tXhChFiSWA"
+    },
+    {
+      "name": "12mini快煮小火鍋 新莊中平店",
+      "address": "新莊高中(新莊文藝中心) 美食 Google Maps 清單地點",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=12mini%E5%BF%AB%E7%85%AE%E5%B0%8F%E7%81%AB%E9%8D%8B%20%E6%96%B0%E8%8E%8A%E4%B8%AD%E5%B9%B3%E5%BA%97%2025.0488337%2C121.4449503",
+      "categoryNames": [
+        "火鍋"
+      ],
+      "tagNames": [
+        "午餐",
+        "晚餐",
+        "一人友善"
+      ],
+      "aiSuggestedTagNames": [
+        "小火鍋",
+        "快速解決"
+      ],
+      "aiSuggestionNote": "取自使用者提供的 Google Maps 清單：https://maps.app.goo.gl/tQw8kB4tXhChFiSWA。類別與標籤由店名初步判斷，仍建議人工確認。",
+      "distanceRank": 4,
+      "distanceText": "Google Maps 清單順序 4/10",
+      "latitude": 25.0488337,
+      "longitude": 121.4449503,
+      "priceText": "需人工確認",
+      "rating": null,
+      "reviewCount": null,
+      "openingHoursText": "需人工確認",
+      "note": "Google Maps 清單第 4 筆。初始資料，請以 Google Maps 與店家公告為準。",
+      "dataVerified": false,
+      "source": "google-maps-list-tQw8kB4tXhChFiSWA"
+    },
+    {
+      "name": "伙食餐館 - 新莊店",
+      "address": "新莊高中(新莊文藝中心) 美食 Google Maps 清單地點",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=%E4%BC%99%E9%A3%9F%E9%A4%90%E9%A4%A8%20-%20%E6%96%B0%E8%8E%8A%E5%BA%97%2025.0481617%2C121.4449503",
+      "categoryNames": [
+        "飯食",
+        "台式"
+      ],
+      "tagNames": [
+        "午餐",
+        "晚餐"
+      ],
+      "aiSuggestedTagNames": [
+        "簡餐",
+        "一人友善"
+      ],
+      "aiSuggestionNote": "取自使用者提供的 Google Maps 清單：https://maps.app.goo.gl/tQw8kB4tXhChFiSWA。類別與標籤由店名初步判斷，仍建議人工確認。",
+      "distanceRank": 5,
+      "distanceText": "Google Maps 清單順序 5/10",
+      "latitude": 25.0481617,
+      "longitude": 121.4449503,
+      "priceText": "需人工確認",
+      "rating": null,
+      "reviewCount": null,
+      "openingHoursText": "需人工確認",
+      "note": "Google Maps 清單第 5 筆。初始資料，請以 Google Maps 與店家公告為準。",
+      "dataVerified": false,
+      "source": "google-maps-list-tQw8kB4tXhChFiSWA"
+    },
+    {
+      "name": "八方雲集-新莊中平店",
+      "address": "新莊高中(新莊文藝中心) 美食 Google Maps 清單地點",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=%E5%85%AB%E6%96%B9%E9%9B%B2%E9%9B%86-%E6%96%B0%E8%8E%8A%E4%B8%AD%E5%B9%B3%E5%BA%97%2025.0480359%2C121.4449849",
+      "categoryNames": [
+        "小吃",
+        "麵食"
+      ],
+      "tagNames": [
+        "午餐",
+        "晚餐",
+        "外帶"
+      ],
+      "aiSuggestedTagNames": [
+        "鍋貼",
+        "水餃",
+        "快速解決"
+      ],
+      "aiSuggestionNote": "取自使用者提供的 Google Maps 清單：https://maps.app.goo.gl/tQw8kB4tXhChFiSWA。類別與標籤由店名初步判斷，仍建議人工確認。",
+      "distanceRank": 6,
+      "distanceText": "Google Maps 清單順序 6/10",
+      "latitude": 25.0480359,
+      "longitude": 121.4449849,
+      "priceText": "需人工確認",
+      "rating": null,
+      "reviewCount": null,
+      "openingHoursText": "需人工確認",
+      "note": "Google Maps 清單第 6 筆。初始資料，請以 Google Maps 與店家公告為準。",
+      "dataVerified": false,
+      "source": "google-maps-list-tQw8kB4tXhChFiSWA"
+    },
+    {
+      "name": "三碗麵 傻瓜麵",
+      "address": "新莊高中(新莊文藝中心) 美食 Google Maps 清單地點",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=%E4%B8%89%E7%A2%97%E9%BA%B5%20%E5%82%BB%E7%93%9C%E9%BA%B5%2025.0468715%2C121.4443975",
+      "categoryNames": [
+        "麵食",
+        "台式"
+      ],
+      "tagNames": [
+        "午餐",
+        "晚餐",
+        "一人友善"
+      ],
+      "aiSuggestedTagNames": [
+        "乾麵",
+        "小吃"
+      ],
+      "aiSuggestionNote": "取自使用者提供的 Google Maps 清單：https://maps.app.goo.gl/tQw8kB4tXhChFiSWA。類別與標籤由店名初步判斷，仍建議人工確認。",
+      "distanceRank": 7,
+      "distanceText": "Google Maps 清單順序 7/10",
+      "latitude": 25.0468715,
+      "longitude": 121.4443975,
+      "priceText": "需人工確認",
+      "rating": null,
+      "reviewCount": null,
+      "openingHoursText": "需人工確認",
+      "note": "Google Maps 清單第 7 筆。初始資料，請以 Google Maps 與店家公告為準。",
+      "dataVerified": false,
+      "source": "google-maps-list-tQw8kB4tXhChFiSWA"
+    },
+    {
+      "name": "新村館韓式中華料理",
+      "address": "新莊高中(新莊文藝中心) 美食 Google Maps 清單地點",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=%E6%96%B0%E6%9D%91%E9%A4%A8%E9%9F%93%E5%BC%8F%E4%B8%AD%E8%8F%AF%E6%96%99%E7%90%86%2025.048083%2C121.444988",
+      "categoryNames": [
+        "韓式",
+        "中式"
+      ],
+      "tagNames": [
+        "午餐",
+        "晚餐",
+        "聚餐"
+      ],
+      "aiSuggestedTagNames": [
+        "韓式中華",
+        "麵食"
+      ],
+      "aiSuggestionNote": "取自使用者提供的 Google Maps 清單：https://maps.app.goo.gl/tQw8kB4tXhChFiSWA。類別與標籤由店名初步判斷，仍建議人工確認。",
+      "distanceRank": 8,
+      "distanceText": "Google Maps 清單順序 8/10",
+      "latitude": 25.048083,
+      "longitude": 121.444988,
+      "priceText": "需人工確認",
+      "rating": null,
+      "reviewCount": null,
+      "openingHoursText": "需人工確認",
+      "note": "Google Maps 清單第 8 筆。初始資料，請以 Google Maps 與店家公告為準。",
+      "dataVerified": false,
+      "source": "google-maps-list-tQw8kB4tXhChFiSWA"
+    },
+    {
+      "name": "鄭家常餐廳",
+      "address": "新莊高中(新莊文藝中心) 美食 Google Maps 清單地點",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=%E9%84%AD%E5%AE%B6%E5%B8%B8%E9%A4%90%E5%BB%B3%2025.0492943%2C121.4447395",
+      "categoryNames": [
+        "台式",
+        "中式"
+      ],
+      "tagNames": [
+        "午餐",
+        "晚餐",
+        "家庭"
+      ],
+      "aiSuggestedTagNames": [
+        "家常菜",
+        "合菜"
+      ],
+      "aiSuggestionNote": "取自使用者提供的 Google Maps 清單：https://maps.app.goo.gl/tQw8kB4tXhChFiSWA。類別與標籤由店名初步判斷，仍建議人工確認。",
+      "distanceRank": 9,
+      "distanceText": "Google Maps 清單順序 9/10",
+      "latitude": 25.0492943,
+      "longitude": 121.4447395,
+      "priceText": "需人工確認",
+      "rating": null,
+      "reviewCount": null,
+      "openingHoursText": "需人工確認",
+      "note": "Google Maps 清單第 9 筆。初始資料，請以 Google Maps 與店家公告為準。",
+      "dataVerified": false,
+      "source": "google-maps-list-tQw8kB4tXhChFiSWA"
+    },
+    {
+      "name": "爭鮮PLUS-中平店",
+      "address": "新莊高中(新莊文藝中心) 美食 Google Maps 清單地點",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=%E7%88%AD%E9%AE%AEPLUS-%E4%B8%AD%E5%B9%B3%E5%BA%97%2025.0485336%2C121.4449471",
+      "categoryNames": [
+        "日式",
+        "壽司"
+      ],
+      "tagNames": [
+        "午餐",
+        "晚餐",
+        "一人友善"
+      ],
+      "aiSuggestedTagNames": [
+        "迴轉壽司",
+        "快速解決"
+      ],
+      "aiSuggestionNote": "取自使用者提供的 Google Maps 清單：https://maps.app.goo.gl/tQw8kB4tXhChFiSWA。類別與標籤由店名初步判斷，仍建議人工確認。",
+      "distanceRank": 10,
+      "distanceText": "Google Maps 清單順序 10/10",
+      "latitude": 25.0485336,
+      "longitude": 121.4449471,
+      "priceText": "需人工確認",
+      "rating": null,
+      "reviewCount": null,
+      "openingHoursText": "需人工確認",
+      "note": "Google Maps 清單第 10 筆。初始資料，請以 Google Maps 與店家公告為準。",
+      "dataVerified": false,
+      "source": "google-maps-list-tQw8kB4tXhChFiSWA"
+    }
+  ]
+}
