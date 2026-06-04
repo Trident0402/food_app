@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="今天吃什麼 app icon">
+  <rect width="512" height="512" rx="96" fill="#2f7d5c"/>
+  <circle cx="256" cy="256" r="166" fill="#f7f7f4"/>
+  <path d="M170 136c12 0 22 10 22 22v87c0 27-17 50-40 58v85c0 13-10 23-23 23s-23-10-23-23v-85c-23-8-40-31-40-58v-87c0-12 10-22 22-22s22 10 22 22v80h18v-80c0-12 10-22 22-22s22 10 22 22v80h18v-80c0-12 10-22 22-22z" fill="#2f7d5c"/>
+  <path d="M328 136c52 0 88 44 88 104 0 50-25 89-64 101v47c0 13-10 23-23 23s-23-10-23-23V158c0-12 10-22 22-22zm23 194c22-14 36-44 36-78 0-36-16-64-36-75v153z" fill="#c67a22"/>
+  <path d="M205 371h132" stroke="#20231f" stroke-width="28" stroke-linecap="round"/>
+</svg>
