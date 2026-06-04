@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>今天吃什麼</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="app-header">
+      <div>
+        <p class="eyebrow">Food Picker</p>
+        <h1>今天吃什麼</h1>
+      </div>
+      <dl class="stats" aria-live="polite">
+        <div>
+          <dt>餐廳</dt>
+          <dd id="stat-restaurants">0</dd>
+        </div>
+        <div>
+          <dt>待吃</dt>
+          <dd id="stat-wishlist">0</dd>
+        </div>
+        <div>
+          <dt>避雷</dt>
+          <dd id="stat-blacklist">0</dd>
+        </div>
+      </dl>
+    </header>
+
+    <main class="app-shell">
+      <section id="home-page" class="page-view is-active" aria-label="主頁">
+        <section class="panel home-actions" aria-label="主頁入口">
+          <div class="section-heading">
+            <div>
+              <h2>今天吃什麼</h2>
+            </div>
+          </div>
+          <div class="button-row">
+            <button type="button" data-page="filter">篩選餐廳</button>
+            <button type="button" data-page="lottery">開始抽籤</button>
+          </div>
+        </section>
+
+        <section class="panel weekly-panel" aria-label="本週紀錄">
+          <div class="section-heading">
+            <div>
+              <h2>本週紀錄</h2>
+              <p class="muted">記錄每天抽到的店家</p>
+            </div>
+          </div>
+          <div id="week-calendar" class="week-calendar" aria-live="polite"></div>
+        </section>
+
+        <div id="add-menu" class="add-menu" aria-hidden="true">
+          <button type="button" data-open-modal="target-modal">新增目標</button>
+          <button type="button" data-open-modal="restaurant-modal">新增餐廳</button>
+          <button type="button" data-open-modal="category-modal">新增類別</button>
+          <button type="button" data-open-modal="tag-modal">新增標籤</button>
+        </div>
+
+        <button id="fab-add" class="fab-add" type="button" aria-label="新增資料" aria-expanded="false">+</button>
+      </section>
+
+      <section id="filter-page" class="page-view" aria-label="篩選">
+        <section class="panel" aria-label="篩選">
+          <div class="section-heading">
+            <div>
+              <h2>篩選</h2>
+              <p id="result-count" class="muted">目前 0 間符合</p>
+            </div>
+            <button id="clear-filters" type="button" class="ghost-button">清除</button>
+          </div>
+
+          <div class="filter-grid">
+            <div class="filter-target-row">
+              <label class="filter-target-field">
+                目標地點
+                <select id="filter-target"></select>
+              </label>
+              <div class="filter-menu-wrap">
+                <button id="filter-options-button" class="ghost-button filter-options-button" type="button" aria-expanded="false" aria-controls="filter-options-menu">篩選選項</button>
+                <div id="filter-options-menu" class="filter-options-menu" aria-hidden="true">
+                  <label class="switch-row">
+                    <input id="filter-wishlist" type="checkbox">
+                    只看待吃
+                  </label>
+                  <label class="switch-row">
+                    <input id="filter-blacklisted" type="checkbox">
+                    顯示避雷
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="filter-groups">
+            <fieldset>
+              <legend>食物類別</legend>
+              <select id="filter-categories" class="native-multi-select" multiple aria-label="篩選食物類別"></select>
+            </fieldset>
+            <fieldset>
+              <legend>自訂標籤</legend>
+              <select id="filter-tags" class="native-multi-select" multiple aria-label="篩選自訂標籤"></select>
+            </fieldset>
+          </div>
+        </section>
+
+        <section class="panel" aria-label="餐廳結果">
+          <div class="section-heading">
+            <h2>餐廳列表</h2>
+          </div>
+          <div id="restaurant-list" class="restaurant-list"></div>
+        </section>
+      </section>
+
+      <section id="lottery-page" class="page-view" aria-label="抽籤">
+        <section class="panel lottery-panel" aria-label="命運抽籤">
+          <div>
+            <h2>抽籤</h2>
+            <p class="muted">從目前篩選結果中抽一間</p>
+          </div>
+          <button id="draw-restaurant" type="button">開始抽籤</button>
+          <div id="lottery-result" class="lottery-result" aria-live="polite"></div>
+        </section>
+
+        <section class="panel tinder-panel" aria-label="二選一淘汰賽">
+          <div class="section-heading">
+            <div>
+              <h2>二選一淘汰賽</h2>
+              <p id="tinder-status" class="muted">從目前篩選結果中挑兩間對決</p>
+            </div>
+            <button id="start-tinder" type="button">開始二選一</button>
+          </div>
+          <div id="tinder-match" class="tinder-match" aria-live="polite"></div>
+        </section>
+      </section>
+
+      <section id="restaurant-detail-page" class="page-view" aria-label="餐廳說明頁">
+        <section class="panel">
+          <div class="section-heading">
+            <button id="back-to-list" class="ghost-button" type="button">返回列表</button>
+            <button id="edit-restaurant-detail" type="button">修改資料</button>
+          </div>
+          <div id="restaurant-detail-content" class="restaurant-detail"></div>
+        </section>
+      </section>
+
+      <section id="settings-page" class="page-view" aria-label="設定">
+        <section class="panel import-panel" aria-label="匯入清單">
+          <div class="section-heading">
+            <div>
+              <h2>匯入清單</h2>
+              <p class="muted">貼上線下 AI 整理後的 JSON</p>
+            </div>
+          </div>
+          <textarea id="import-json" rows="10" spellcheck="false" placeholder='{"targetArea":{"name":"公司附近"},"restaurants":[{"name":"範例牛肉麵","categoryNames":["麵食"],"tagNames":["午餐"],"aiSuggestedTagNames":["200 以內"]}]}'></textarea>
+          <div class="button-row">
+            <button id="preview-import" type="button">預覽匯入</button>
+            <button id="confirm-import" type="button" class="secondary-button" disabled>確認匯入</button>
+          </div>
+          <div id="import-preview" class="import-preview" aria-live="polite"></div>
+        </section>
+
+        <section class="panel">
+          <div class="section-heading">
+            <div>
+              <h2>新增入口</h2>
+              <p class="muted">請使用主頁右下角加號新增目標、餐廳、類別與標籤</p>
+            </div>
+          </div>
+          <div class="settings-actions">
+            <button type="button" data-open-modal="target-modal">新增目標</button>
+            <button type="button" data-open-modal="restaurant-modal">新增餐廳</button>
+            <button type="button" data-open-modal="category-modal">新增類別</button>
+            <button type="button" data-open-modal="tag-modal">新增標籤</button>
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="section-heading">
+            <div>
+              <h2>初始資料</h2>
+              <p class="muted">載入 Google Maps 清單內的新莊高中附近 10 筆餐廳，已存在的店家會略過</p>
+            </div>
+          </div>
+          <button id="load-seed-data" type="button">載入新莊高中附近 10 筆</button>
+        </section>
+      </section>
+    </main>
+
+    <nav class="bottom-nav" aria-label="主要頁面">
+      <button class="nav-button is-active" type="button" data-page="home">主頁</button>
+      <button class="nav-button" type="button" data-page="filter">篩選</button>
+      <button class="nav-button" type="button" data-page="lottery">抽籤</button>
+      <button class="nav-button" type="button" data-page="settings">設定</button>
+    </nav>
+
+    <div id="lottery-result-modal" class="modal-backdrop" aria-hidden="true">
+      <section class="modal-panel lottery-modal-panel" role="dialog" aria-modal="true" aria-labelledby="lottery-result-title">
+        <div class="section-heading">
+          <h2 id="lottery-result-title">抽籤結果</h2>
+          <button id="close-lottery-result" class="ghost-button modal-close" type="button">關閉</button>
+        </div>
+        <div id="lottery-result-modal-content" class="lottery-result-modal-content"></div>
+      </section>
+    </div>
+
+    <div id="target-modal" class="modal-backdrop" aria-hidden="true">
+      <section class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="target-modal-title">
+        <div class="section-heading">
+          <h2 id="target-modal-title">新增目標地點</h2>
+          <button class="ghost-button modal-close" type="button" data-close-modal>關閉</button>
+        </div>
+        <form id="target-form" class="stacked-form">
+          <label>
+            名稱
+            <input id="target-name" type="text" autocomplete="off" placeholder="公司附近">
+          </label>
+          <label>
+            中心點
+            <input id="target-center" type="text" autocomplete="off" placeholder="捷運站、公司、學校">
+          </label>
+          <label>
+            範圍
+            <input id="target-radius" type="text" autocomplete="off" placeholder="步行 10 分鐘">
+          </label>
+          <label>
+            情境
+            <input id="target-purpose" type="text" autocomplete="off" placeholder="平日午餐">
+          </label>
+          <button type="submit">新增目標</button>
+        </form>
+      </section>
+    </div>
+
+    <div id="category-modal" class="modal-backdrop" aria-hidden="true">
+      <section class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="category-modal-title">
+        <div class="section-heading">
+          <h2 id="category-modal-title">新增食物類別</h2>
+          <button class="ghost-button modal-close" type="button" data-close-modal>關閉</button>
+        </div>
+        <form id="category-form" class="stacked-form">
+          <label>
+            類別名稱
+            <input id="category-name" type="text" autocomplete="off" placeholder="麵食">
+          </label>
+          <button type="submit">新增類別</button>
+        </form>
+      </section>
+    </div>
+
+    <div id="tag-modal" class="modal-backdrop" aria-hidden="true">
+      <section class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="tag-modal-title">
+        <div class="section-heading">
+          <h2 id="tag-modal-title">新增自訂標籤</h2>
+          <button class="ghost-button modal-close" type="button" data-close-modal>關閉</button>
+        </div>
+        <form id="tag-form" class="stacked-form">
+          <label>
+            標籤名稱
+            <input id="tag-name" type="text" autocomplete="off" placeholder="有冷氣">
+          </label>
+          <button type="submit">新增標籤</button>
+        </form>
+      </section>
+    </div>
+
+    <div id="restaurant-modal" class="modal-backdrop" aria-hidden="true">
+      <section class="modal-panel wide-modal" role="dialog" aria-modal="true" aria-labelledby="restaurant-modal-title">
+        <div class="section-heading">
+          <h2 id="restaurant-modal-title">新增餐廳</h2>
+          <button class="ghost-button modal-close" type="button" data-close-modal>關閉</button>
+        </div>
+        <form id="restaurant-form" class="stacked-form">
+          <input id="restaurant-edit-id" type="hidden">
+          <label>
+            餐廳名稱
+            <input id="restaurant-name" type="text" autocomplete="off" placeholder="巷口牛肉麵">
+          </label>
+          <label>
+            目標地點
+            <select id="restaurant-target"></select>
+          </label>
+          <label>
+            地址
+            <input id="restaurant-address" type="text" autocomplete="off" placeholder="可空白">
+          </label>
+          <label>
+            Google Maps 連結
+            <input id="restaurant-map-url" type="url" autocomplete="off" placeholder="https://maps.google.com/...">
+          </label>
+          <fieldset>
+            <legend>食物類別</legend>
+            <select id="restaurant-categories" class="native-multi-select" multiple aria-label="餐廳食物類別"></select>
+          </fieldset>
+          <fieldset>
+            <legend>自訂標籤</legend>
+            <select id="restaurant-tags" class="native-multi-select" multiple aria-label="餐廳自訂標籤"></select>
+          </fieldset>
+          <label>
+            備註
+            <textarea id="restaurant-note" rows="2" placeholder="公開備註"></textarea>
+          </label>
+          <label>
+            私人筆記
+            <textarea id="restaurant-private-note" rows="2" placeholder="只有本機保存"></textarea>
+          </label>
+          <button type="submit">新增餐廳</button>
+        </form>
+      </section>
+    </div>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+    <script src="seed-data.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
