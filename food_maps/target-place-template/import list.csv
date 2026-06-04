@@ -1,0 +1,2 @@
+name,address,googleMapsUrl,categoryNames,tagNames,aiSuggestedTagNames,aiSuggestionNote,priceText,rating,reviewCount,openingHoursText,note,dataVerified,source
+範例牛肉麵,需人工確認,,麵食|台式,午餐|200 以內,快速解決|湯品,範例資料，請替換成實際 AI 整理結果,需人工確認,,,需人工確認,範例資料,false,manual-google-maps-offline-ai

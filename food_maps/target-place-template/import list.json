@@ -1,0 +1,26 @@
+{
+  "targetArea": {
+    "name": "目標地點範本",
+    "centerName": "請填入中心點",
+    "radiusText": "步行 10-15 分鐘",
+    "purpose": "午餐與晚餐"
+  },
+  "restaurants": [
+    {
+      "name": "範例牛肉麵",
+      "address": "需人工確認",
+      "googleMapsUrl": "",
+      "categoryNames": ["麵食", "台式"],
+      "tagNames": ["午餐", "200 以內"],
+      "aiSuggestedTagNames": ["快速解決", "湯品"],
+      "aiSuggestionNote": "範例資料，請替換成實際 AI 整理結果。",
+      "priceText": "需人工確認",
+      "rating": null,
+      "reviewCount": null,
+      "openingHoursText": "需人工確認",
+      "note": "範例資料",
+      "dataVerified": false,
+      "source": "manual-google-maps-offline-ai"
+    }
+  ]
+}
